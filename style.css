@@ -1,107 +1,206 @@
-/* Import Google Font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
+/* Basic Styles */
+* {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body{
-  display: flex;
-  padding: 0 10px;
-  min-height: 100vh;
-  align-items: center;
-  background: #3498DB;
-  justify-content: center;
-}
-::selection{
-  color: #fff;
-  background: #3498DB;
-}
-.wrapper{
-  height: 265px;
-  max-width: 410px;
-  background: #fff;
-  border-radius: 7px;
-  padding: 20px 25px 0;
-  transition: height 0.2s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-.wrapper.active{
-  height: 530px;
-}
-header h1{
-  font-size: 21px;
-  font-weight: 500;
-}
-header p{
-  margin-top: 5px;
-  color: #575757;
-  font-size: 16px;
-}
-.wrapper .form{
-  margin: 20px 0 25px;
-}
-.form :where(input, button){
-  width: 100%;
-  height: 55px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  transition: 0.1s ease;
-}
-.form input{
-  font-size: 18px;
-  padding: 0 17px;
-  border: 1px solid #999;
-}
-.form input:focus{
-  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
-}
-.form input::placeholder{
-  color: #999;
-}
-.form button{
-  color: #fff;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 17px;
-  background: #3498DB;
-}
-.qr-code{
-  opacity: 0;
-  display: flex;
-  padding: 33px 0;
-  border-radius: 5px;
-  align-items: center;
-  pointer-events: none;
-  justify-content: center;
-  border: 1px solid #ccc;
-}
-.wrapper.active .qr-code{
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.5s 0.05s ease;
-}
-.qr-code img{
-  width: 170px;
 }
 
-@media (max-width: 430px){
-  .wrapper{
-    height: 255px;
-    padding: 16px 20px;
-  }
-  .wrapper.active{
-    height: 510px;
-  }
-  header p{
-    color: #696969;
-  }
-  .form :where(input, button){
-    height: 52px;
-  }
-  .qr-code img{
-    width: 160px;
-  }  
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  margin: 0;
+  padding: 0;
+  color:black;
+  transition: background 0.5s;
+}
+
+.wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  margin: 100px auto; /* Center the wrapper vertically */
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #3498db; /* Accent color for header */
+}
+
+header p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form input,
+.form select,
+.form button {
+  width: calc(100% - 20px);
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+.form input:focus, 
+.form select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.form button {
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.form button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.qr-code {
+  display: flex;
+  flex-direction: column; /* Stack the QR code and buttons vertically */
+  align-items: center; /* Center align items horizontally */
+  margin: 20px 0;
+}
+
+.qr-image {
+  max-width: 100%; /* Ensure the QR code image is responsive */
+  height: auto;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: bold;
+  min-width: 120px; /* Minimum button width for consistency */
+}
+
+.btn:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+}
+
+/* History Styles */
+.history {
+  margin-top: 20px;
+  display: none;
+}
+
+.history h2 {
+  margin-bottom: 10px;
+  color: #3498db; /* Accent color for history header */
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.history li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.history li:hover {
+  background: #f0f0f0; /* Light hover effect */
+}
+
+.history li img {
+  max-width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.history button {
+  padding: 5px 10px;
+  border: none;
+  background: #e74c3c;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background: #2c2c2c;
+}
+
+body.dark-mode .wrapper {
+  background: #3c3c3c;
+}
+
+body.dark-mode header h1,
+body.dark-mode header p {
+  color: #fff;
+}
+
+body.dark-mode .form input,
+body.dark-mode .form button,
+body.dark-mode .qr-code a,
+body.dark-mode .history button {
+  background: #555;
+  color: #fff;
+}
+
+body.dark-mode .form input {
+  border: 1px solid #666;
+}
+
+/* Dark Mode Toggle */
+#darkModeToggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  width: 100px;
+
+  background: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+} 
+
+#darkModeToggle:hover {
+  background: #2980b9;
 }
